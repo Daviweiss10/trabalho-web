@@ -1,0 +1,456 @@
+/* =========================================
+   PALETA DE CORES (harmônica)
+   azul-petróleo: #264653   verde-água: #2a9d8f
+   azul:          #1d6fa5   amarelo:    #e9c46a
+   terracota:     #e76f51   fundo:      #f3f7f8
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #f3f7f8;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f3f7f8;
+  color: #2b3a42;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* ===== TOPO (logo + menu) ===== */
+.topo {
+  background-color: #264653;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 12px 0;
+}
+
+.logo span {
+  color: #e9c46a;
+}
+
+.menu a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 14px;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  background-color: #2a9d8f;
+}
+
+.menu a.ativo {
+  background-color: #2a9d8f;
+}
+
+/* ===== BANNER PRINCIPAL ===== */
+.banner {
+  background: linear-gradient(135deg, #264653, #2a9d8f);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 0 0 24px 24px;
+}
+
+.banner h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.banner p {
+  font-size: 20px;
+  max-width: 650px;
+  margin: 0 auto 18px auto;
+}
+
+/* variações do banner (tons parecidos) */
+.banner.azul  { background: linear-gradient(135deg, #1d6fa5, #2a9d8f); }
+.banner.verde { background: linear-gradient(135deg, #2a9d8f, #52b69a); }
+.banner.roxo  { background: linear-gradient(135deg, #264653, #1d6fa5); }
+
+.banner.pequeno {
+  padding: 26px 20px;
+}
+
+.banner.pequeno h1 {
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.banner.pequeno p {
+  margin-bottom: 0;
+}
+
+/* ===== BOTÕES ===== */
+.botao {
+  display: inline-block;
+  background-color: #e9c46a;
+  color: #264653;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 25px;
+  margin: 4px;
+}
+
+.botao:hover {
+  background-color: #f1d58c;
+}
+
+.botao.laranja {
+  background-color: #e76f51;
+  color: white;
+}
+
+.botao.laranja:hover {
+  background-color: #ee8b72;
+}
+
+/* ===== CONTEÚDO ===== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+.titulo-secao {
+  color: #264653;
+  font-size: 26px;
+  margin-top: 22px;
+  margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 6px solid #e76f51;
+}
+
+.caixa {
+  background-color: white;
+  padding: 18px;
+  margin-bottom: 15px;
+  border-radius: 16px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.caixa p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== IMAGENS ===== */
+img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 16px;
+  background-color: #d5e3e6;
+  margin-bottom: 10px;
+}
+
+/* ===== NÚMEROS (estatísticas) ===== */
+.numeros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0 5px 0;
+}
+
+.numero {
+  flex: 1;
+  min-width: 180px;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 16px;
+}
+
+.numero strong {
+  display: block;
+  font-size: 30px;
+}
+
+.cor-laranja { background-color: #e76f51; }
+.cor-azul    { background-color: #1d6fa5; }
+.cor-verde   { background-color: #2a9d8f; }
+.cor-roxo    { background-color: #264653; }
+
+/* ===== CARTÕES ===== */
+.cartoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.cartao {
+  flex: 1;
+  min-width: 200px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #1d6fa5;
+}
+
+.cartao:hover {
+  transform: translateY(-3px);
+}
+
+.cartao.laranja { border-top-color: #e76f51; }
+.cartao.verde   { border-top-color: #2a9d8f; }
+.cartao.amarelo { border-top-color: #e9c46a; }
+.cartao.roxo    { border-top-color: #264653; }
+
+.cartao h3 {
+  color: #264653;
+  margin-bottom: 4px;
+}
+
+.cartao p {
+  margin-bottom: 0;
+}
+
+.emoji {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== CARTÕES COM IMAGEM (esportes) ===== */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.item {
+  flex: 1;
+  min-width: 220px;
+  background-color: white;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+  height: 150px;
+}
+
+.item h3 {
+  color: #264653;
+  margin-bottom: 4px;
+}
+
+.item p {
+  margin-bottom: 8px;
+}
+
+.etiqueta {
+  display: inline-block;
+  background-color: #2a9d8f;
+  color: white;
+  font-size: 14px;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-right: 4px;
+}
+
+.etiqueta.azul {
+  background-color: #1d6fa5;
+}
+
+/* ===== DESTAQUE (frase) ===== */
+.destaque {
+  background-color: #fbf1d3;
+  border-left: 6px solid #e9c46a;
+  color: #264653;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+/* ===== TABELA ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+th {
+  background-color: #264653;
+  color: white;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e3ecee;
+}
+
+tr:nth-child(even) td {
+  background-color: #eef6f6;
+}
+
+/* ===== LISTAS ===== */
+ul, ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+/* ===== DESENVOLVEDORES ===== */
+.dev {
+  flex: 1;
+  min-width: 240px;
+  background-color: white;
+  text-align: center;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dev .foto {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.dev h3 {
+  margin-bottom: 2px;
+  color: #264653;
+}
+
+.dev .funcao {
+  color: #e76f51;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.dev p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  background-color: #264653;
+  color: #d5e3e6;
+  margin-top: 20px;
+  padding: 22px 20px 0 20px;
+}
+
+.rodape-colunas {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.rodape-colunas div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.rodape h3 {
+  color: #e9c46a;
+  margin-bottom: 8px;
+}
+
+.rodape p {
+  margin-bottom: 4px;
+}
+
+.rodape a {
+  color: #d5e3e6;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.rodape a:hover {
+  color: #e9c46a;
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid #3d6272;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 700px) {
+  .banner h1 {
+    font-size: 26px;
+  }
+  .menu a {
+    padding: 10px;
+  }
+}
+
+/* ===== FOTO DE PERFIL (desenvolvedores) ===== */
+.foto-perfil {
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2a9d8f;
+}
+
+/* ===== EFEITO AO PASSAR O MOUSE (Por que se exercitar?) ===== */
+.zoom .cartao {
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.zoom .cartao:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
