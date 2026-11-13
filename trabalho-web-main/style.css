@@ -1,0 +1,653 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700;800&display=swap");
+
+/* ===== CORES E FONTE (mude aqui para trocar o site inteiro) ===== */
+:root {
+  --fundo: #eef1ec;
+  --papel: #ffffff;
+  --tinta: #14213d;
+  --texto: #2c3550;
+  --linha: #d3d9d0;
+  --bola: #ff6b1a;
+  --quadra: #17704a;
+  --azul: #1f4fd8;
+  --fonte: "Geist", system-ui, Arial, sans-serif;
+  --largura: 1500px;
+  --lateral: max(24px, calc((100% - var(--largura)) / 2 + 20px));
+
+  /* cor da página (padrão = Início) */
+  --cor: #1f4fd8;
+}
+
+/* ===== COR DE CADA PÁGINA (muda sozinha pelo item ativo do menu) ===== */
+body:has(a.ativo[href="esportes.html"])       { --cor: #c2410c; }
+body:has(a.ativo[href="saude.html"])          { --cor: #17704a; }
+body:has(a.ativo[href="treinos.html"])        { --cor: #5b35b0; }
+body:has(a.ativo[href="desenvolvedores.html"]) { --cor: #0e7490; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--fundo);
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  color: var(--tinta);
+}
+
+p {
+  margin-top: 0;
+}
+
+a:focus-visible,
+iframe:focus-visible {
+  outline: 3px solid var(--bola);
+  outline-offset: 2px;
+}
+
+/* ===== TOPO (logo + menu) ===== */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 var(--lateral);
+  background-color: var(--fundo);
+  border-bottom: 1px solid var(--linha);
+}
+
+.logo {
+  color: var(--tinta);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  padding: 14px 0;
+}
+
+.logo span {
+  color: var(--cor);
+}
+
+.menu a {
+  display: inline-block;
+  color: var(--tinta);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 18px 14px 15px 14px;
+  border-bottom: 3px solid transparent;
+}
+
+.menu a:hover {
+  border-bottom-color: var(--linha);
+}
+
+.menu a.ativo {
+  font-weight: 700;
+  border-bottom-color: var(--cor);
+}
+
+/* ===== BANNER (quadra: linhas brancas ao fundo) ===== */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cor);
+  color: white;
+  padding: 76px var(--lateral) 68px var(--lateral);
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -90px;
+  width: 420px;
+  height: 420px;
+  margin-top: -210px;
+  border: 3px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 119px;
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+.banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.banner h1 {
+  color: white;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  max-width: 14ch;
+  margin-bottom: 16px;
+}
+
+.banner p {
+  font-size: 20px;
+  max-width: 46ch;
+  margin: 0 0 28px 0;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.banner.pequeno {
+  padding-top: 48px;
+  padding-bottom: 44px;
+}
+
+.banner.pequeno h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  max-width: none;
+  margin-bottom: 8px;
+}
+
+.banner.pequeno p {
+  margin-bottom: 0;
+}
+
+/* ===== BOTÕES ===== */
+.botao {
+  display: inline-block;
+  background-color: white;
+  color: var(--tinta);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 6px;
+  margin: 0 8px 8px 0;
+}
+
+.botao:hover {
+  background-color: #eceff7;
+}
+
+.botao.laranja {
+  background-color: var(--bola);
+  color: var(--tinta);
+}
+
+.botao.laranja:hover {
+  background-color: #ff8a4a;
+}
+
+/* ===== CONTEÚDO ===== */
+main {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 16px 20px 40px 20px;
+}
+
+.titulo-secao {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 48px;
+  margin-bottom: 18px;
+}
+
+.caixa {
+  background-color: var(--papel);
+  border: 1px solid var(--linha);
+  padding: 22px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+}
+
+.caixa p {
+  max-width: 70ch;
+}
+
+.caixa p:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #d5e3e6;
+  margin-bottom: 12px;
+}
+
+/* ===== NÚMEROS (faixa com divisórias) ===== */
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin: 36px 0 0 0;
+  border-top: 2px solid var(--cor);
+}
+
+.numero {
+  padding: 18px 16px 6px 0;
+  color: var(--texto);
+}
+
+.numero strong {
+  display: block;
+  color: var(--tinta);
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 6px;
+}
+
+/* ===== CARTÕES ===== */
+.cartoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cartao {
+  flex: 1;
+  min-width: 200px;
+  background-color: var(--papel);
+  padding: 20px;
+  border: 1px solid var(--linha);
+  border-top: 4px solid var(--cor);
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.cartao:hover {
+  transform: translateY(-3px);
+}
+
+.cartao.laranja { border-top-color: var(--bola); }
+.cartao.verde   { border-top-color: var(--quadra); }
+.cartao.amarelo { border-top-color: var(--bola); }
+.cartao.roxo    { border-top-color: var(--tinta); }
+
+.cartao h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.cartao p {
+  margin-bottom: 0;
+}
+
+/* ===== ESPORTES (cartões com imagem) ===== */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.item {
+  flex: 1;
+  min-width: 220px;
+  background-color: var(--papel);
+  padding: 12px 12px 16px 12px;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+}
+
+.item img {
+  height: 160px;
+}
+
+.item h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding: 0 4px;
+}
+
+.item p {
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.item span {
+  margin-left: 4px;
+}
+
+.etiqueta {
+  display: inline-block;
+  color: var(--tinta);
+  border: 1px solid var(--tinta);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1px 10px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.etiqueta.azul {
+  color: white;
+  background-color: var(--cor);
+  border-color: var(--cor);
+}
+
+/* ===== DESTAQUE (frase) ===== */
+.destaque {
+  margin: 48px 0 16px 0;
+  padding: 28px 0;
+  border-top: 2px solid var(--cor);
+  border-bottom: 1px solid var(--linha);
+  color: var(--tinta);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  max-width: 34ch;
+}
+
+/* ===== TABELA ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--papel);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  margin-bottom: 16px;
+}
+
+th {
+  background-color: var(--cor);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+}
+
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--linha);
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+tr:nth-child(even) td {
+  background-color: #f6f8f4;
+}
+
+/* ===== LISTAS ===== */
+ul, ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+.caixa p + ul {
+  margin-top: 12px;
+}
+
+/* ===== DESENVOLVEDORES ===== */
+.dev {
+  flex: 1;
+  min-width: 240px;
+  background-color: var(--papel);
+  padding: 22px;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+}
+
+.foto-perfil {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 0 14px 0;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.dev h3 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.dev .funcao {
+  color: var(--cor);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dev p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  background-color: var(--tinta);
+  color: #c9d0e0;
+  padding: 40px var(--lateral) 0 var(--lateral);
+}
+
+.rodape-colunas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: space-between;
+}
+
+.rodape-colunas div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.rodape h3 {
+  color: white;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.rodape p {
+  margin-bottom: 4px;
+}
+
+.rodape a {
+  display: block;
+  color: #c9d0e0;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.rodape a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.copyright {
+  border-top: 1px solid #34426a;
+  margin-top: 28px;
+  padding: 16px 0;
+  font-size: 15px;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 700px) {
+  .menu a {
+    padding: 10px 10px 8px 10px;
+  }
+  .banner {
+    padding-top: 48px;
+    padding-bottom: 44px;
+  }
+  .banner::before,
+  .banner::after {
+    display: none;
+  }
+}
+
+/* =====================================================
+   FUNÇÕES (efeitos ao passar o mouse) - não mexer
+   ===================================================== */
+
+/* Início: "Por que se exercitar?" aumenta ao passar o mouse */
+.zoom .cartao {
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.zoom .cartao:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(20, 33, 61, 0.25);
+  position: relative;
+  z-index: 2;
+}
+
+/* Treinos: cartões que expandem + vídeo em pé */
+.cartoes.expande {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.cartoes.expande .cartao {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 230px;
+  overflow: hidden;
+  transition: flex 0.5s ease, box-shadow 0.35s ease;
+}
+
+.cartoes.expande .cartao:hover {
+  flex: 2.2 1 0;
+  transform: none;
+  box-shadow: 0 14px 32px rgba(20, 33, 61, 0.3);
+}
+
+.video-box {
+  width: 100%;
+  max-width: 270px;
+  margin: 0 auto;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+}
+
+.cartoes.expande .cartao:hover .video-box {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.video-box iframe,
+.video-box video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 10px;
+  background-color: #000;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* Celular: cartões um embaixo do outro, vídeo sempre visível */
+@media (max-width: 800px) {
+  .cartoes.expande {
+    flex-wrap: wrap;
+  }
+  .cartoes.expande .cartao,
+  .cartoes.expande .cartao:hover {
+    flex: 1 1 100%;
+    min-height: 0;
+  }
+  .video-box {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 14px;
+  }
+}
+
+/* Saúde: caixa que expande + vídeo deitado */
+.caixa.expande-caixa {
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.caixa.expande-caixa:hover {
+  transform: scale(1.04);
+  z-index: 10;
+  box-shadow: 0 14px 32px rgba(20, 33, 61, 0.3);
+}
+
+.video-box.deitado {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+}
+
+.caixa.expande-caixa:hover .video-box.deitado {
+  max-height: 340px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.video-box.deitado iframe,
+.video-box.deitado video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+@media (max-width: 800px) {
+  .caixa.expande-caixa:hover {
+    transform: none;
+  }
+  .video-box.deitado {
+    max-height: 340px;
+    opacity: 1;
+    margin-top: 14px;
+  }
+}
+
+/* Quem prefere menos movimento não vê as animações */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
