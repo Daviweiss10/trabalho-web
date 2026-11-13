@@ -142,5 +142,17 @@
     </div>
     <div class="copyright">&copy; 2026 MovaCorpo - Todos os direitos reservados</div>
   </footer>
+    <script>
+    // Ao tirar o mouse do cartão, pausa o vídeo dele
+    var blocos = document.querySelectorAll(".cartao, .expande-caixa");
+    blocos.forEach(function (bloco) {
+      bloco.addEventListener("mouseleave", function () {
+        var video = bloco.querySelector("video");
+        if (video) {
+          video.pause();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
